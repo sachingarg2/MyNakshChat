@@ -1,97 +1,123 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# MyNaksh Chat
 
-# Getting Started
+A modern React Native chat application with advanced features including swipe-to-reply, emoji reactions, AI feedback, and message rating.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+- 🎨 **Modern UI** - Clean, WhatsApp-inspired interface
+- 💬 **Chat Functionality** - Real-time messaging with user and AI messages
+- ↩️ **Swipe to Reply** - Intuitive gesture-based reply system
+- 😊 **Emoji Reactions** - Long-press messages to add emoji reactions
+- 👍👎 **AI Feedback** - Like/dislike AI responses with detailed feedback chips
+- ⭐ **Session Rating** - Rate your chat experience at the end
+- 🏠 **Home/Chat Navigation** - Seamless navigation between home and chat screens
+- ⌨️ **Smart Keyboard** - Auto-focus on reply with keyboard avoidance
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Tech Stack
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **React Native** 0.83.1
+- **TypeScript** - Full type safety
+- **React Native Gesture Handler** - Smooth swipe gestures
+- **React Native Reanimated** - Performant animations
+- **React Native Safe Area Context** - Proper safe area handling
 
-```sh
-# Using npm
-npm start
+## Architecture
 
-# OR using Yarn
-yarn start
+```
+src/
+├── stores/           # State management (ChatContext)
+├── screens/          # Screen components
+│   ├── ChatScreen/
+│   └── HomeScreen/
+└── components/       # Reusable components
+    ├── MessageList/
+    ├── MessageBubble/
+    ├── InputBar/
+    ├── ReplyPreview/
+    ├── EmojiReactionBar/
+    ├── AIFeedback/
+    └── EndChatOverlay/
 ```
 
-## Step 2: Build and run your app
+Each component folder contains:
+- `ComponentName.tsx` - Component logic
+- `ComponentName.styles.ts` - Separated styles
+- `index.ts` - Clean exports
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## Getting Started
 
-### Android
+### Prerequisites
 
-```sh
-# Using npm
-npm run android
+- Node.js >= 20
+- iOS development setup (Xcode, CocoaPods)
+- Android development setup (Android Studio, SDK)
 
-# OR using Yarn
-yarn android
-```
+### Installation
 
-### iOS
+```bash
+# Install dependencies
+npm install
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+# iOS setup
+cd ios && pod install && cd ..
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+# Run on iOS
 npm run ios
 
-# OR using Yarn
-yarn ios
+# Run on Android
+npm run android
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## Scripts
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```bash
+npm run android    # Run on Android
+npm run ios        # Run on iOS
+npm run start      # Start Metro bundler
+npm run lint       # Run ESLint
+npm run test       # Run tests
+```
 
-## Step 3: Modify your app
+## Key Features Explained
 
-Now that you have successfully run the app, let's make changes!
+### Swipe to Reply
+- Swipe left on AI messages to reply
+- Message automatically springs back
+- Reply preview appears above input
+- Shows original message text
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Emoji Reactions
+- Long-press any message
+- Select from 6 emojis (🙏 ✨ 🌙 ❤️ 👍 😊)
+- Reactions appear on message bubble
+- WhatsApp-style positioning
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### AI Feedback
+- Separate like (👍) and dislike (👎) buttons on AI messages
+- Clicking like hides both buttons
+- Clicking dislike shows feedback chips
+- Chips: "Inaccurate", "Too Vague", "Too Long"
+- Selecting a chip dismisses the feedback UI
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### Session Rating
+- End chat button in header
+- Star rating overlay (1-5 stars)
+- Returns to home screen after rating
+- Clean state reset
 
-## Congratulations! :tada:
+## Project Structure
 
-You've successfully run and modified your React Native App. :partying_face:
+The project follows a clean architecture pattern with separated concerns:
 
-### Now what?
+- **Stores**: Context-based state management
+- **Screens**: Full-screen components with navigation logic
+- **Components**: Reusable UI components
+- **Styles**: Separated from logic for maintainability
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## License
 
-# Troubleshooting
+MIT
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Author
 
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Built for MyNaksh - Astrology Chat Application
